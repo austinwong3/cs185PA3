@@ -16,13 +16,11 @@ class Email extends Component{
             }
             document.getElementById("email").value = ""
             
-        }
-        
-        
+        } 
         
         function isEmail(email){
             const valid = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            if(valid.test(email.toLowerCase()) && email.endsWith(".com" || ".edu"))
+            if(valid.test(email.toLowerCase()) && (email.endsWith(".edu") || email.endsWith(".com")))
                 return true;
             return false;
         }

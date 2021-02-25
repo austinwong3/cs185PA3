@@ -21,6 +21,24 @@ class Video extends Component{
     }
 
     render(){
+
+        var videos = [
+            {
+                src: vid1
+            },
+            {
+                src: vid2
+            },
+            {
+                src: vid3
+            },
+            {
+                src: vid4
+            },
+            {
+                src: vid5
+            }
+        ]
         
         return(
             <div className = "videoPage">
@@ -29,12 +47,7 @@ class Video extends Component{
                 </div>
 
                 <div class="videopage">
-                    <video controls="true" onClick={(e) => this.showOverlay(e, vid1)} class="ytVideo" src={vid1} frameborder="0" ></video>
-                    <video controls="true" onClick={(e) => this.showOverlay(e, vid2)} class="ytVideo" src={vid2} frameborder="0" ></video>
-                    <video controls="true" onClick={(e) => this.showOverlay(e, vid3)} class="ytVideo" src={vid3} frameborder="0" ></video>
-                    <video controls="true" onClick={(e) => this.showOverlay(e, vid4)} class="ytVideo" src={vid4} frameborder="0" ></video>
-                    <video controls="true" onClick={(e) => this.showOverlay(e, vid5)} class="ytVideo" src={vid5} frameborder="0" ></video>
-                    
+                    {videos.map((video) => <video controls="true" onClick={(e) => this.showOverlay(e, video.src)} class="ytVideo" src={video.src} frameborder="0" ></video>)}
                 </div>
             </div>
         )

@@ -10,64 +10,78 @@ import img6 from './images/im6.JPG'
 
 
 class Image extends Component{
+    componentDidMount(){
+        document.onscroll = this.scrollFunction
+    }
 
+    showOverlay(src){
+        document.getElementById("overlayImg").src = src;
+        document.getElementById("overlay").style.display = "flex";
+    }
+    
+    hideOverlay(){
+        document.getElementById("overlay").style.display = "none";
+    }
+    
+    scrollToTop()
+    {
+        window.scroll({
+            top: 0, 
+            behavior: 'smooth'
+          });
+    
+    }
+
+    scrollFunction() {
+        var mybutton = document.getElementById("scrollTop");
+        if (document.body.scrollTop > window.innerHeight/4 || document.documentElement.scrollTop > window.innerHeight/4) {
+          mybutton.style.display = "block";
+          console.log("hi")
+        } else {
+          mybutton.style.display = "none";
+        }
+      }
     
     render(){
-        function showOverlay(src){
-            document.getElementById("overlayImg").src = src;
-            document.getElementById("overlay").style.display = "flex";
-        }
         
-        function hideOverlay(){
-            document.getElementById("overlay").style.display = "none";
-        }
-        
-        function scrollToTop()
-        {
-            window.scroll({
-                top: 0, 
-                behavior: 'smooth'
-              });
-        
-        }
-        
-        window.onscroll = function() {scrollFunction()};
-        function scrollFunction() {
-            var mybutton = document.getElementById("scrollTop");
-            if (document.body.scrollTop > window.innerHeight/4 || document.documentElement.scrollTop > window.innerHeight/4) {
-              mybutton.style.display = "block";
-            } else {
-              mybutton.style.display = "none";
+        var loop = [1,2,3]
+        var imgs = [
+            {
+                src: img1,
+                alt: "im1"
+            },
+            {
+                src: img2,
+                alt: "im2"
+            },
+            {
+                src: img3,
+                alt: "im3"
+            },
+            {
+                src: img4,
+                alt: "im4"
+            },
+            {
+                src: img5,
+                alt: "im5"
+            },
+            {
+                src: img6,
+                alt: "im6"
             }
-          }
+        ]
         return(
-            <div className='imagePage'>
-                <button class="scrollTop" id="scrollTop" onClick={scrollToTop}>Scroll To Top</button>
-                <div class="overlay" id="overlay" onClick={hideOverlay}>
+            <div className='imagePage' onScroll = {this.scrollFunction}>
+                <button class="scrollTop" id="scrollTop"  onClick={this.scrollToTop}>Scroll To Top</button>
+                <div class="overlay" id="overlay" onClick={this.hideOverlay}>
                     <img src="" class="overlayImg" id="overlayImg"/>
                 </div>
 
                 <div class="imagepage">
-                        <img src={img1} alt="im1" onClick = {() => showOverlay(img1)}/>
-                        <img src={img2} alt="im2" onClick = {() => showOverlay(img2)}/>
-                        <img src={img3} alt="im3" onClick = {() => showOverlay(img3)}/>
-                        <img src={img4} alt="im4" onClick = {() => showOverlay(img4)}/>
-                        <img src={img5} alt="im5" onClick = {() => showOverlay(img5)}/>
-                        <img src={img6} alt="im6" onClick = {() => showOverlay(img6)}/>
-                        <img src={img1} alt="im1" onClick = {() => showOverlay(img1)}/>
-                        <img src={img2} alt="im2" onClick = {() => showOverlay(img2)}/>
-                        <img src={img3} alt="im3" onClick = {() => showOverlay(img3)}/>
-                        <img src={img4} alt="im4" onClick = {() => showOverlay(img4)}/>
-                        <img src={img5} alt="im5" onClick = {() => showOverlay(img5)}/>
-                        <img src={img6} alt="im6" onClick = {() => showOverlay(img6)}/>
-                        <img src={img1} alt="im1" onClick = {() => showOverlay(img1)}/>
-                        <img src={img2} alt="im2" onClick = {() => showOverlay(img2)}/>
-                        <img src={img3} alt="im3" onClick = {() => showOverlay(img3)}/>
-                        <img src={img4} alt="im4" onClick = {() => showOverlay(img4)}/>
-                        <img src={img5} alt="im5" onClick = {() => showOverlay(img5)}/>
-                        <img src={img6} alt="im6" onClick = {() => showOverlay(img6)}/>
-                        
-
+                        {loop.map((loop) => 
+                            imgs.map((img) => 
+                                <img src={img.src} alt={img.alt} onClick = {() => this.showOverlay(img.src)}/>))}
                 </div>
             </div>
         )
