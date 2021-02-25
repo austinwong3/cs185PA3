@@ -1,0 +1,26 @@
+.emailpage
+{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.emailpage form{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nameInput
+{
+    display:flex;
+    flex-direction: column;
+    width: 250px;
+    padding: 20px;
+}
+
+.doneButton
+{
+    padding: 20px;
+    
+}

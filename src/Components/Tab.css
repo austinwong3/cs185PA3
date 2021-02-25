@@ -1,0 +1,19 @@
+.tab
+{
+    text-decoration: none;
+    color: #eeeeee;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.tab:hover {
+    background-color: white;
+    color:black;
+}
+
+.activeTab{
+    background-color: white;
+    color:#555555;
+    padding: 20px;
+    font-size: 20px;
+}

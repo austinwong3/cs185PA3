@@ -1,0 +1,33 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: left;
+  }
+
+.tablepage{
+    padding:40px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projectTable{
+    width:90%;
+}
+
+.nameHead{
+    width:5%;
+}
+
+.detailsHead{
+width: 90%;
+}
+
+.yearHead{
+width: 5%;
+}
+
+td a{
+    text-decoration: none;
+    color: blue;
+}

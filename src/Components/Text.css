@@ -1,0 +1,28 @@
+.textpage
+{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nameInput
+{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.nameInput input{
+    width: 100%;
+}
+
+.movieInput
+{
+    padding: 20px;
+}
+
+.doneButton
+{
+    padding: 20px;
+}
